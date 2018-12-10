@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<head>
+	<title>HearthSteal</title>
+	<link href="style.css" rel="stylesheet"/> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div id="container">
+		<h1 id="title">HearthSteal<h1>
+    <div id="description">
+			<p>Here is a full database of each and every card.</p>
+		</div>
+  <script>    	
+  var json = (function () {
+				var json = null;
+				$.ajax({
+					'async': false,
+					'global': false,
+					'url': "cars.json",
+					'dataType': "json",
+					'success': function (data) {
+						json = data;
+					}
+				});
+				return json;
+			})(); 
+			
+			for(i in json.Basic){
+				document.write("<div class=card>");			
+				document.write("<h1>"+json.Basic[i].name+"</h1>");
+				if(json.Basic[i].img!=null){
+					document.write("<img src="+json.Basic[i].img+">");
+				}				
+				document.write("<i>"+json.Basic[i].text+"</i>");
+				document.write("</div>");
+				document.write("<br>");
+      }
+      </script>  
+      
+	</div>
+
+			<script>
+// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest();
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'https://omgvamp-hearthstone-v1.p.mashape.com/cards', true);
+request.onload = function (){
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response);
+
+data.forEach(Cards=> {
+  // Log each movie's title
+  console.log(Cards.CardId);
+});
+
+// Send request
+request.send();
+        
+// These code snippets use an open-source library. http://unirest.io/nodejs
+unirest.get("https://omgvamp-hearthstone-v1.p.mashape.com/cards")
+.header("X-Mashape-Key", "mTkFD0SKvFmsh0AJ768t1B4C7Dy7p1exNLMjsnMjftrzIk9dj0")
+.end(function (result) {
+  console.log(result.status, result.headers, result.body);
+});
+}
+      </script>
+</body>

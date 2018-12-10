@@ -1,0 +1,35 @@
+#container{
+	height:16500px;
+	width:1450px;
+	margin:0 auto;
+	background: yellow;
+}
+#gameBox{
+	height: 800px;
+	width:800px;
+	position:relative;
+	border-style:solid;
+	margin:0 auto;
+}
+#myCanvas{
+	height:800px;
+	width:800px;
+}
+#description{
+	position:relative;
+	top:1px;
+	left: 300px;
+	margin:0 auto;
+	font-size: 18px;
+}
+#title{
+	text-align:center;
+}
+		.card{
+			background:#333;
+			border-radius:5px;
+			border-style:3px solid yellow;
+			width:350px;
+			color:white;
+		}
+
